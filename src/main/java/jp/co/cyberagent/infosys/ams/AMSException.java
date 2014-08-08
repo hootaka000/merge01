@@ -11,10 +11,13 @@ public final class AMSException extends Exception {
     private static final long serialVersionUID = 7640193439138240768L;
 
     /** Serial Version UID. */
-    private static final long serialVersionUID03 = 7640193439138240768L;
+    private static final long serialVersionUID02 = 7640193439138240768L;
 
     /** Serial Version UID. */
     private static final long serialVersionUID01 = 7640193439138240768L;
+
+    /** Serial Version UID. */
+    private static final long serialVersionUID03 = 7640193439138240768L;
 
     /**
      * メッセージを指定して例外オブジェクトを生成する.
