@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>アクセス権管理 | グループ管理</title>
+
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ams.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">アクセス権管理</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="assign.html">アクセス権設定</a></li>
+            <li><a href="customers.html">顧客管理</a></li>
+            <li class="active"><a href="groups.html">グループ管理</a></li>
+            <li><a href="belongs.html">所属管理</a></li>
+            <li><a href="system.html">システム設定</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">山田太郎<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="login.html">ログアウト</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- group list -->
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="list-group">
+                  <a class="list-group-item active">メイン営業</a>
+                  <a class="list-group-item">サブ営業</a>
+                  <a class="list-group-item">コンサル</a>
+                  <a class="list-group-item">局長</a>
+                  <a class="list-group-item">マネージャー</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block " id="group-name-edit-button">グループ名変更</button>
+                <button class="btn btn-sm btn-primary btn-block " id="group-add-button">グループ追加</button>
+                <button class="btn btn-sm btn-primary btn-block " id="group-remove-button">グループ削除</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- member list -->
+        <div class="col-sm-9">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block " id="employee-add-button">社員追加</button>
+              </div>
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" id="employee-filter" placeholder="フィルター（社員番号または氏名）">
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table" id="employee-list">
+              <thead>
+                <tr>
+                  <th>社員番号</th>
+                  <th>氏名</th>
+                  <th>役職</th>
+                  <th>メール</th>
+                  <th>削除</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="num">A12345</td>
+                  <td id="name">山田 太郎</td>
+                  <td id="grade">局長</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12346</td>
+                  <td id="name">山田 二郎</td>
+                  <td id="grade">マネージャー</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12347</td>
+                  <td id="name">山田 三郎</td>
+                  <td id="grade">リーダー</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12348</td>
+                  <td id="name">山田 四郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12349</td>
+                  <td id="name">山田 五郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12350</td>
+                  <td id="name">山田 六郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> <!-- row -->
+    </div><!-- /.container -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">Copyright CyberAgent, Inc. All Rights Reserved.</p>
+      </div>
+    </div>
+
+    <!-- employee add dialog -->
+    <div id="employee-add-dialog" title="社員追加" style="display:none;">
+      <form>
+        <div class="form-group">
+          <table class="table">
+            <thead>
+              <tr><th></th><th>社員番号</th><th>氏名</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13456"></td>
+                <td>A13456</td>
+                <td>佐藤 太郎</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13457"></td>
+                <td>A13457</td>
+                <td>佐藤 二郎</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13458"></td>
+                <td>A13458</td>
+                <td>佐藤 三郎</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13459"></td>
+                <td>A13459</td>
+                <td>佐藤 四郎</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13460"></td>
+                <td>A13460</td>
+                <td>佐藤 五郎</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="employee-add-dialog-add">追加</button>
+          <button class="btn btn-sm btn-warning" id="employee-add-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- employee remove dialog -->
+    <div id="employee-remove-dialog" title="社員削除" style="display:none;">
+      <div id="employee-remove-dialog-message"></div>
+      <div>
+        <button class="btn btn-sm btn-danger" id="employee-remove-dialog-remove">削除する</button>
+        <button class="btn btn-sm btn-primary" id="employee-remove-dialog-cancel">キャンセル</button>
+      </div>
+    </div>
+    <!-- group name edit dialog -->
+    <div id="group-name-edit-dialog" title="グループ名変更" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>グループ名を入力してください</label>
+          <input type="text" class="form-control" value="メイン営業">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="group-name-edit-dialog-update">変更</button>
+          <button class="btn btn-sm btn-warning" id="group-name-edit-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- group add dialog -->
+    <div id="group-add-dialog" title="グループ追加" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>グループ名を入力してください</label>
+          <input type="text" class="form-control" value="">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="group-add-dialog-add">追加</button>
+          <button class="btn btn-sm btn-warning" id="group-add-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+    <!-- group remove dialog -->
+    <div id="group-remove-dialog" title="グループ削除" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label id="group-remove-dialog-message">メイン営業グループを削除しますか？</label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-danger" id="group-remove-dialog-remove">削除</button>
+          <button class="btn btn-sm btn-primary" id="group-remove-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    <script src="js/groups.js"></script>
+  </body>
+</html>
+

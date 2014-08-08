@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>アクセス権管理 | アクセス権設定</title>
+
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ams.css" rel="stylesheet">
+    <link href="css/assign.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">アクセス権管理</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="assign.html">アクセス権設定</a></li>
+            <li><a href="customers.html">顧客管理</a></li>
+            <li><a href="groups.html">グループ管理</a></li>
+            <li><a href="belongs.html">所属管理</a></li>
+            <li><a href="system.html">システム設定</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">山田太郎<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="login.html">ログアウト</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- belongs list -->
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="list-group">
+                  <a class="list-group-item active">１局</a>
+                  <a class="list-group-item">２局</a>
+                  <a class="list-group-item">３局</a>
+                  <a class="list-group-item">４局</a>
+                  <a class="list-group-item">５局</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <button class="btn btn-sm btn-primary btn-block " id="group-assign-button">グループのアクセス権設定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- member list -->
+        <div class="col-sm-9">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block assign-button">一括設定</button>
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block" id="assign-export-button">エクスポート</button>
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block" id="assign-import-button">インポート</button>
+              </div>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" id="employee-filter" placeholder="フィルター（社員番号または氏名）">
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table" id="employee-list">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>社員番号</th>
+                  <th>氏名</th>
+                  <th>役職</th>
+                  <th>メール</th>
+                  <th>設定</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" class="employee-list-check"></td>
+                  <td id="num">A12345</td>
+                  <td id="name">山田 太郎</td>
+                  <td id="grade">局長</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block assign-button">設定</button></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="employee-list-check"></td>
+                  <td id="num">A12346</td>
+                  <td id="name">山田 二郎</td>
+                  <td id="grade">マネージャー</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block assign-button">設定</button></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="employee-list-check"></td>
+                  <td id="num">A12347</td>
+                  <td id="name">山田 三郎</td>
+                  <td id="grade">リーダー</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block assign-button">設定</button></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="employee-list-check"></td>
+                  <td id="num">A12348</td>
+                  <td id="name">山田 四郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block assign-button">設定</button></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="employee-list-check"></td>
+                  <td id="num">A12349</td>
+                  <td id="name">山田 五郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block assign-button">設定</button></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="employee-list-check"></td>
+                  <td id="num">A12350</td>
+                  <td id="name">山田 六郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block assign-button">設定</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block assign-button">一括設定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- row -->
+    </div><!-- /.container -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">Copyright CyberAgent, Inc. All Rights Reserved.</p>
+      </div>
+    </div>
+
+    <!-- assign dialog -->
+    <div id="assign-dialog" title="アクセス権設定" style="display:none;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2">
+            <label>顧客一覧</label>
+          </div>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="customer-list-filter" placeholder="フィルター">
+          </div>
+          <div class="col-sm-2 col-sm-offset-2">
+            <label>アクセス権一覧</label>
+          </div>
+        </div> <!-- row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <select class="form-control" id="customer-list" multiple size="20">
+              <option>サイバー株式会社</option>
+              <option>サイバー株式会社 開発事業部</option>
+              <option>アメーバ</option>
+            </select>
+          </div>
+          <div class="col-sm-2 center-block">
+            <button class="btn btn-sm btn-primary btn-block" id="customer-add">追加 ＞＞</button>
+            <button class="btn btn-sm btn-warning btn-block" id="customer-remove">＜＜ 削除</button>
+          </div>
+          <div class="col-sm-5">
+            <select class="form-control" id="assign-list" multiple size="20">
+              <option>サイバー株式会社 広告事業部</option>
+              <option>サイバー株式会社 広告事業部 ○○サービス</option>
+              <option>株式会社エージェント</option>
+              <option>Cygames</option>
+              <option>CyberX</option>
+            </select>
+          </div>
+        </div> <!-- row -->
+        <div class="row">
+          <div class="col-sm-2 col-sm-offset-4">
+            <button class="btn btn-sm btn-primary btn-block" id="assign-setting">設定</button>
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-sm btn-warning btn-block" id="assign-cancel">キャンセル</button>
+          </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div>
+
+    <!-- group assign dialog -->
+    <div id="group-assign-dialog" title="グループのアクセス権設定" style="display:none;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5">
+            <label>アクセス権を設定するグループ</label>
+            <select class="form-control">
+              <option value="1">メイン営業</option>
+              <option value="2">サブ営業</option>
+              <option value="3">コンサル</option>
+              <option value="4">局長</option>
+              <option value="5">マネージャー</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2">
+            <label>顧客一覧</label>
+          </div>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="group-assign-dialog-customer-list-filter" placeholder="フィルター">
+          </div>
+          <div class="col-sm-2 col-sm-offset-2">
+            <label>アクセス権一覧</label>
+          </div>
+        </div> <!-- row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <select class="form-control" id="group-assign-dialog-customer-list" multiple size="20">
+              <option>サイバー株式会社</option>
+              <option>サイバー株式会社 開発事業部</option>
+              <option>アメーバ</option>
+            </select>
+          </div>
+          <div class="col-sm-2 center-block">
+            <button class="btn btn-sm btn-primary btn-block" id="group-assign-dialog-customer-add">追加 ＞＞</button>
+            <button class="btn btn-sm btn-warning btn-block" id="group-assign-dialog-customer-remove">＜＜ 削除</button>
+          </div>
+          <div class="col-sm-5">
+            <select class="form-control" id="group-assign-dialog-assign-list" multiple size="20">
+              <option>サイバー株式会社 広告事業部</option>
+              <option>サイバー株式会社 広告事業部 ○○サービス</option>
+              <option>株式会社エージェント</option>
+              <option>Cygames</option>
+              <option>CyberX</option>
+            </select>
+          </div>
+        </div> <!-- row -->
+        <div class="row">
+          <div class="col-sm-2 col-sm-offset-4">
+            <button class="btn btn-sm btn-danger btn-block" id="group-assign-dialog-setting">アクセス権設定</button>
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-sm btn-primary btn-block" id="group-assign-dialog-cancel">キャンセル</button>
+          </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div>
+    <!-- import dialog -->
+    <div id="assign-import-dialog" title="アクセス権インポート" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>インポートするファイルを選択してください。</label>
+          <input type="file" class="form-control" id="assign-import-dialog-file">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="assign-import-upload">アップロード</button>
+          <button class="btn btn-sm btn-warning" id="assign-import-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    <script src="js/assign.js"></script>
+
+  </body>
+</html>

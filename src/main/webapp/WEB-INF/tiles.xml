@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd ">
+
+<tiles-definitions>
+
+<definition name="default" template="../layout.jsp">
+	<put-attribute name="head" type="template" value="header.jsp"/>
+	<put-attribute name="footer" type="template" value="footer.jsp"/>
+</definition>
+
+<definition name="system-login" extends="default">
+	<put-attribute name="title"  value="ログイン"/>
+	<put-attribute name="body" type="template" value="/admin/system/login-content.jsp"/>      
+</definition>
+
+<definition name="system-setting" extends="default">
+	<put-attribute name="title"  value="システム設定"/>
+	<put-attribute name="body" type="template" value="/admin/system/setting-content.jsp"/>      
+</definition>
+
+<definition name="admin-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/system/admin-add-input.jsp"/>      
+</definition>
+
+<definition name="linkage-system-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/system/linkage-system-add-input.jsp"/>      
+</definition>
+
+<definition name="assign-setting" extends="default">
+	<put-attribute name="title"  value="アクセス権設定"/>
+	<put-attribute name="body" type="template" value="/admin/assign/setting-content.jsp"/>      
+</definition>
+
+<definition name="assign-employee-setting-dialog" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/assign/employee-setting-dialog.jsp"/>      
+</definition>
+
+<definition name="assign-group-setting-dialog" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/assign/group-setting-dialog.jsp"/>      
+</definition>
+
+<definition name="error" template="../layout_error.jsp">
+	<put-attribute name="body" type="template" value="../error.jsp"/>      
+</definition>
+
+<!-- 顧客管理 -->
+<definition name="customer-list" extends="default">
+	<put-attribute name="title"  value="顧客管理"/>
+	<put-attribute name="body" type="template" value="/admin/customer/customer-list-content.jsp"/>      
+</definition>
+
+<definition name="customer-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/customer/customer-add-input.jsp"/>      
+</definition>
+
+<definition name="customer-update-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/customer/customer-update-input.jsp"/>      
+</definition>
+
+<definition name="customer-employee-acl-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/customer/customer-employee-acl-input.jsp"/>      
+</definition>
+
+<definition name="customer-group-acl-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/customer/customer-group-acl-input.jsp"/>      
+</definition>
+
+<definition name="customer-import-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/customer/customer-import-input.jsp"/>      
+</definition>
+
+<!-- グループ管理 -->
+<definition name="groups-list" extends="default">
+	<put-attribute name="title"  value="グループ管理"/>
+	<put-attribute name="body" type="template" value="/admin/groups/groups-list-content.jsp"/>      
+</definition>
+
+<definition name="groups-employee-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/groups/groups-employee-add-input.jsp"/>      
+</definition>
+
+<definition name="groups-update-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/groups/groups-update-input.jsp"/>      
+</definition>
+
+<definition name="groups-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/groups/groups-add-input.jsp"/>      
+</definition>
+
+<definition name="groups-employee-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/groups/groups-employee-add-input.jsp"/>      
+</definition>
+
+<!-- 所属管理 -->
+<definition name="belongs-list" extends="default">
+	<put-attribute name="title"  value="所属管理"/>
+	<put-attribute name="body" type="template" value="/admin/belongs/belongs-list-content.jsp"/>      
+</definition>
+
+<definition name="belongs-employee-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/belongs/belongs-employee-add-input.jsp"/>      
+</definition>
+
+<definition name="belongs-update-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/belongs/belongs-update-input.jsp"/>      
+</definition>
+
+<definition name="belongs-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/belongs/belongs-add-input.jsp"/>      
+</definition>
+
+<definition name="belongs-employee-add-input" template="../layout_ajax.jsp">
+	<put-attribute name="body" type="template" value="/admin/belongs/belongs-employee-add-input.jsp"/>      
+</definition>
+
+</tiles-definitions>

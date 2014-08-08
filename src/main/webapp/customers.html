@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>アクセス権管理 | 顧客管理</title>
+
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ams.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">アクセス権管理</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="assign.html">アクセス権設定</a></li>
+            <li class="active"><a href="customers.html">顧客管理</a></li>
+            <li><a href="groups.html">グループ管理</a></li>
+            <li><a href="belongs.html">所属管理</a></li>
+            <li><a href="system.html">システム設定</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">山田太郎<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="login.html">ログアウト</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- belongs list -->
+      <div class="row">
+        <!-- customer list -->
+        <div class="col-sm-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block" id="customer-add-button">顧客追加</button>
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block" id="customer-export-button">エクスポート</button>
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block" id="customer-import-button">インポート</button>
+              </div>
+              <div class="col-sm-3 col-sm-offset-3">
+                <input type="text" class="form-control" id="customer-filter" placeholder="フィルター(CAON IDまたは企業名)">
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table" id="customer-list">
+              <thead>
+                <tr>
+                  <th>UID</th>
+                  <th colspan="2">企業名</th>
+                  <th colspan="2">事業部名</th>
+                  <th colspan="2">サービス</th>
+                  <th>社員</th>
+                  <th>グループ</th>
+                  <th>削除</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="uid">C000001-000-000</td>
+                  <td id="cid">C000001</td>
+                  <td id="name">サイバー株式会社</td>
+                  <td id="did"></td>
+                  <td id="division"></td>
+                  <td id="sid"></td>
+                  <td id="service"></td>
+                  <td><a href="#" class="assign-num">12</a></td>
+                  <td><a href="#" class="group-num">12</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block customer-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="uid">C000001-001-000</td>
+                  <td id="cid">C000001</td>
+                  <td id="name">サイバー株式会社</td>
+                  <td id="did">001</td>
+                  <td id="division">開発事業部</td>
+                  <td id="sid"></td>
+                  <td id="service"></td>
+                  <td><a href="#" class="assign-num">12</a></td>
+                  <td><a href="#" class="group-num">12</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block customer-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="uid">C000001-002-000</td>
+                  <td id="cid">C000001</td>
+                  <td id="name">サイバー株式会社</td>
+                  <td id="did">002</td>
+                  <td id="division">広告事業部</td>
+                  <td id="sid"></td>
+                  <td id="service"></td>
+                  <td><a href="#" class="assign-num">12</a></td>
+                  <td><a href="#" class="group-num">12</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block customer-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="uid">C000001-002-001</td>
+                  <td id="cid">C000001</td>
+                  <td id="name">サイバー株式会社</td>
+                  <td id="did">002</td>
+                  <td id="division">広告事業部</td>
+                  <td id="sid">001</td>
+                  <td id="service">○○サービス</td>
+                  <td><a href="#" class="assign-num">12</a></td>
+                  <td><a href="#" class="group-num">12</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block customer-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="uid">C000002-000-000</td>
+                  <td id="cid">C000002</td>
+                  <td id="name">株式会社エージェント</td>
+                  <td id="did"></td>
+                  <td id="division"></td>
+                  <td id="sid"></td>
+                  <td id="service"></td>
+                  <td><a href="#" class="assign-num">12</a></td>
+                  <td><a href="#" class="group-num">12</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block customer-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="uid">C000003-000-000</td>
+                  <td id="cid">C000003</td>
+                  <td id="name">アメーバ</td>
+                  <td id="did"></td>
+                  <td id="division"></td>
+                  <td id="sid"></td>
+                  <td id="service"></td>
+                  <td><a href="#" class="assign-num">12</a></td>
+                  <td><a href="#" class="group-num">12</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block customer-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="uid">C000004-000-000</td>
+                  <td id="cid">C000004</td>
+                  <td id="name">Cygames</td>
+                  <td id="did"></td>
+                  <td id="division"></td>
+                  <td id="sid"></td>
+                  <td id="service"></td>
+                  <td><a href="#" class="assign-num">12</a></td>
+                  <td><a href="#" class="group-num">12</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block customer-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="uid">C000005-000-000</td>
+                  <td id="cid">C000005</td>
+                  <td id="name">CyberX</td>
+                  <td id="did"></td>
+                  <td id="division"></td>
+                  <td id="sid"></td>
+                  <td id="service"></td>
+                  <td><a href="#" class="assign-num">12</a></td>
+                  <td><a href="#" class="group-num">12</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block customer-remove-button">削除</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> <!-- row -->
+    </div><!-- /.container -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">Copyright CyberAgent, Inc. All Rights Reserved.</p>
+      </div>
+    </div>
+
+    <!-- customer add dialog -->
+    <div id="customer-add-dialog" title="顧客追加" style="display:none;">
+      <table class="table">
+        <tr><th>CAON ID</th><td><input class="form-control" type="text" id="customer-add-dialog-caon-id"></td></tr>
+        <tr><th>企業名</th><td><input class="form-control" type="text" id="customer-add-dialog-customer-name"></td></tr>
+        <tr><th>事業部名</th><td><input class="form-control" type="text" id="customer-add-dialog-division-name"></td></tr>
+        <tr><th>サービス名</th><td><input class="form-control" type="text" id="customer-add-dialog-service-name"></td></tr>
+      </table>
+      <button class="btn btn-sm btn-primary" id="customer-add-dialog-add-button">顧客追加</button>
+      <button class="btn btn-sm btn-warning" id="customer-add-dialog-cancel-button">キャンセル</button>
+    </div>
+
+    <!-- remove confirm dialog -->
+    <div id="customer-remove-dialog" title="顧客削除" style="display:none;">
+      <div id="customer-remove-dialog-message">サイバー株式会社を削除しますか？</div>
+      <div>
+        <button class="btn btn-sm btn-danger" id="customer-remove-dialog-remove-button">削除する</button>
+        <button class="btn btn-sm btn-primary" id="customer-remove-dialog-cancel-button">キャンセル</button>
+      </div>
+    </div>
+
+    <!-- assign member list dialog -->
+    <div id="assign-list-dialog" title="社員一覧" style="display:none;">
+      <div class="col-sm-6 col-sm-offset-6">
+        <input type="text" class="form-control" id="assign-list-dialog-filter" placeholder="フィルター(所属名、社員番号、氏名)">
+      </div>
+      <table class="table" id="assign-list-dialog-employee-list">
+        <thead>
+          <tr><th><input type="checkbox" id="assign-list-dialog-allcheck"></th><th>所属</th><th>社員番号</th><th>社員名</th><th>メール</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">１局</td><td id="number">A12345</td><td id="name">山田 太郎</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">１局</td><td id="number">A12346</td><td id="name">山田 二郎</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">１局</td><td id="number">A12347</td><td id="name">山田 三郎</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">２局</td><td id="number">A12348</td><td id="name">鈴木 太郎</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">２局</td><td id="number">A12349</td><td id="name">鈴木 四郎</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">３局</td><td id="number">A12350</td><td id="name">佐藤 一郎</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">３局</td><td id="number">A12351</td><td id="name">佐藤 花子</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">３局</td><td id="number">A12352</td><td id="name">伊藤 あい</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+          <tr><td><input type="checkbox" class="assign-list-dialog-check"></td><td id="belongs">３局</td><td id="number">A12353</td><td id="name">円山 真人</td><td>yamada_taro@cyberagent.co.jp</td></tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="btn btn-sm btn-primary" id="assign-list-dialog-setting-button">アクセス権設定</button>
+        <button class="btn btn-sm btn-warning" id="assign-list-dialog-cancel-button">キャンセル</button>
+      </div>
+    </div>
+
+    <!-- assign group list dialog -->
+    <div id="assign-group-dialog" title="グループ一覧" style="display:none;">
+      <table class="table">
+        <thead>
+          <tr><th></th><th>グループ番号</th><th>グループ名</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input type="checkbox" class="assign-group-dialog-check"></td><td>G0001</td><td id="name">メイン営業</td></tr>
+          <tr><td><input type="checkbox" class="assign-group-dialog-check"></td><td>G0002</td><td id="name">サブ営業</td></tr>
+          <tr><td><input type="checkbox" class="assign-group-dialog-check"></td><td>G0003</td><td id="name">コンサル</td></tr>
+          <tr><td><input type="checkbox" class="assign-group-dialog-check"></td><td>G0004</td><td id="name">局長</td></tr>
+          <tr><td><input type="checkbox" class="assign-group-dialog-check"></td><td>G0005</td><td id="name">マネージャー</td></tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="btn btn-sm btn-primary" id="assign-group-dialog-setting-button">アクセス権設定</button>
+        <button class="btn btn-sm btn-warning" id="assign-group-dialog-cancel-button">キャンセル</button>
+      </div>
+    </div>
+
+    <!-- import dialog -->
+    <div id="customer-import-dialog" title="顧客インポート" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>インポートするファイルを選択してください。</label>
+          <input type="file" class="form-control" id="customer-import-dialog-file">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="customer-import-upload">アップロード</button>
+          <button class="btn btn-sm btn-warning" id="customer-import-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    <script src="js/customers.js"></script>
+  </body>
+</html>

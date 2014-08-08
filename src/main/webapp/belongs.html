@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>アクセス権管理 | 所属管理</title>
+
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ams.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">アクセス権管理</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="assign.html">アクセス権設定</a></li>
+            <li><a href="customers.html">顧客管理</a></li>
+            <li><a href="groups.html">グループ管理</a></li>
+            <li class="active"><a href="belongs.html">所属管理</a></li>
+            <li><a href="system.html">システム設定</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">山田太郎<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="login.html">ログアウト</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- belongs list -->
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="list-group">
+                  <a class="list-group-item active">１局</a>
+                  <a class="list-group-item">２局</a>
+                  <a class="list-group-item">３局</a>
+                  <a class="list-group-item">４局</a>
+                  <a class="list-group-item">５局</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block " id="belongs-name-edit-button">所属名変更</button>
+                <button class="btn btn-sm btn-primary btn-block " id="belongs-add-button">所属追加</button>
+                <button class="btn btn-sm btn-primary btn-block " id="belongs-remove-button">所属削除</button>
+                <button class="btn btn-sm btn-primary btn-block " id="belongs-integrate-button">所属統合</button>
+                <button class="btn btn-sm btn-primary btn-block " id="belongs-separate-button">所属分離</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- member list -->
+        <div class="col-sm-9">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block " id="employee-add-button">社員追加</button>
+              </div>
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" id="employee-filter" placeholder="フィルター（社員番号または氏名）">
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table" id="employee-list">
+              <thead>
+                <tr>
+                  <th>社員番号</th>
+                  <th>氏名</th>
+                  <th>役職</th>
+                  <th>メール</th>
+                  <th>削除</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="num">A12345</td>
+                  <td id="name">山田 太郎</td>
+                  <td id="grade">局長</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12346</td>
+                  <td id="name">山田 二郎</td>
+                  <td id="grade">マネージャー</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12347</td>
+                  <td id="name">山田 三郎</td>
+                  <td id="grade">リーダー</td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12348</td>
+                  <td id="name">山田 四郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12349</td>
+                  <td id="name">山田 五郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+                <tr>
+                  <td id="num">A12350</td>
+                  <td id="name">山田 六郎</td>
+                  <td id="grade"></td>
+                  <td><a href="mailto:yamada_taro@cyberagent.local">yamada_taro@cyberagent.local</a></td>
+                  <td><button class="btn btn-sm btn-primary btn-block employee-remove-button">削除</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> <!-- row -->
+    </div><!-- /.container -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">Copyright CyberAgent, Inc. All Rights Reserved.</p>
+      </div>
+    </div>
+
+    <!-- employee add dialog -->
+    <div id="employee-add-dialog" title="社員追加" style="display:none;">
+      <div class="col-sm-6 col-sm-offset-6">
+        <input type="text" class="form-control" id="employee-add-dialog-filter" placeholder="フィルター(社員番号または氏名)">
+      </div>
+      <form>
+        <div class="form-group">
+          <table class="table" id="employee-add-dialog-list">
+            <thead>
+              <tr><th><input type="checkbox" id="employee-add-dialog-allcheck"></th><th>社員番号</th><th>氏名</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13456"></td>
+                <td id="number">A13456</td>
+                <td id="name">佐藤 太郎</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13457"></td>
+                <td id="number">A13457</td>
+                <td id="name">佐藤 二郎</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13458"></td>
+                <td id="number">A13458</td>
+                <td id="name">佐藤 三郎</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13459"></td>
+                <td id="number">A13459</td>
+                <td id="name">佐藤 四郎</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="employee-add-dialog-check" id="employee-add-dialog-number" value="A13460"></td>
+                <td id="number">A13460</td>
+                <td id="name">佐藤 五郎</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="employee-add-dialog-add">追加</button>
+          <button class="btn btn-sm btn-warning" id="employee-add-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- employee remove dialog -->
+    <div id="employee-remove-dialog" title="社員削除" style="display:none;">
+      <div id="employee-remove-dialog-message"></div>
+      <div>
+        <button class="btn btn-sm btn-danger" id="employee-remove-dialog-remove">削除する</button>
+        <button class="btn btn-sm btn-primary" id="employee-remove-dialog-cancel">キャンセル</button>
+      </div>
+    </div>
+
+    <!-- import dialog -->
+    <div id="employee-import-dialog" title="社員インポート" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>インポートするファイルを選択してください。</label>
+          <input type="file" class="form-control" id="employee-import-dialog-file">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="employee-import-upload">アップロード</button>
+          <button class="btn btn-sm btn-warning" id="employee-import-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- belongs name edit dialog -->
+    <div id="belongs-name-edit-dialog" title="所属名変更" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>所属名を入力してください</label>
+          <input type="text" class="form-control" value="１局">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="belongs-name-edit-dialog-update">変更</button>
+          <button class="btn btn-sm btn-warning" id="belongs-name-edit-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- belongs add dialog -->
+    <div id="belongs-add-dialog" title="所属追加" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>所属名を入力してください</label>
+          <input type="text" class="form-control" value="">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="belongs-add-dialog-add">追加</button>
+          <button class="btn btn-sm btn-warning" id="belongs-add-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+    <!-- belongs remove dialog -->
+    <div id="belongs-remove-dialog" title="所属削除" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label id="belongs-remove-dialog-message">１局を削除しますか？</label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-danger" id="belongs-remove-dialog-remove">削除</button>
+          <button class="btn btn-sm btn-primary" id="belongs-remove-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+    <!-- belongs integrate dialog -->
+    <div id="belongs-integrate-dialog" title="所属統合" style="display:none;">
+      <form>
+        <div class="form-group">
+            <div><label>統合のベースとなる所属を選択してください。</label></div>
+          <select class="form-control" id="belongs-integrate-dialog-base">
+            <option value="1">１局</option>
+            <option value="2">２局</option>
+            <option value="3">３局</option>
+            <option value="4">４局</option>
+            <option value="5">５局</option>
+          </select>
+          <table class="table" id="belongs-integrate-dialog-list">
+            <tr><th>統合する所属を選択してください。</th></tr>
+            <tr><td><label class="checkbox-inline"><input type="checkbox" class=" belongs-integrate-dialog-check" value="1">１局</label></td></tr>
+            <tr><td><label class="checkbox-inline"><input type="checkbox" class=" belongs-integrate-dialog-check" value="2">２局</label></td></tr>
+            <tr><td><label class="checkbox-inline"><input type="checkbox" class=" belongs-integrate-dialog-check" value="3">３局</label></td></tr>
+            <tr><td><label class="checkbox-inline"><input type="checkbox" class=" belongs-integrate-dialog-check" value="4">４局</label></td></tr>
+            <tr><td><label class="checkbox-inline"><input type="checkbox" class=" belongs-integrate-dialog-check" value="5">５局</label></td></tr>
+          </table>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-danger" id="belongs-integrate-dialog-integrate">統合</button>
+          <button class="btn btn-sm btn-primary" id="belongs-integrate-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+    <!-- belongs separate dialog -->
+    <div id="belongs-separate-dialog" title="所属分離" style="display:none;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5">
+            <label>分離する所属</label>
+            <select class="form-control">
+              <option value="1">１局</option>
+              <option value="2">２局</option>
+              <option value="3">３局</option>
+              <option value="4">４局</option>
+              <option value="5">５局</option>
+            </select>
+          </div>
+          <div class="col-sm-5 col-sm-offset-2">
+            <label>新しい所属</label><input type="text" class="form-control" placeholder="所属名を入力してください">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2">
+            <label>社員一覧</label>
+          </div>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="belongs-separate-dialog-employee-list-filter" placeholder="フィルター">
+          </div>
+          <div class="col-sm-2 col-sm-offset-2">
+            <label>社員一覧</label>
+          </div>
+        </div> <!-- row -->
+        <div class="row">
+          <div class="col-sm-5">
+            <select class="form-control" id="belongs-separate-dialog-employee-list" multiple size="20">
+              <option>A12345 山田 太郎</option>
+              <option>A12346 山田 二郎</option>
+              <option>A12347 山田 三郎</option>
+              <option>A12348 山田 四郎</option>
+              <option>A12349 山田 五郎</option>
+              <option>A12350 山田 六郎</option>
+            </select>
+          </div>
+          <div class="col-sm-2 center-block">
+            <button class="btn btn-sm btn-primary btn-block" id="belongs-separate-dialog-employee-add">追加 ＞＞</button>
+            <button class="btn btn-sm btn-warning btn-block" id="belongs-separate-dialog-employee-remove">＜＜ 削除</button>
+          </div>
+          <div class="col-sm-5">
+            <select class="form-control" id="belongs-separate-dialog-new-employee-list" multiple size="20">
+            </select>
+          </div>
+        </div> <!-- row -->
+        <div class="row">
+          <div class="col-sm-2 col-sm-offset-4">
+            <button class="btn btn-sm btn-danger btn-block" id="belongs-separate-dialog-separate">分離</button>
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-sm btn-primary btn-block" id="belongs-separate-dialog-cancel">キャンセル</button>
+          </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    <script src="js/belongs.js"></script>
+
+  </body>
+</html>

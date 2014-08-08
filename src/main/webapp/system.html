@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>アクセス権管理 | システム設定</title>
+
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ams.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">アクセス権管理</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="assign.html">アクセス権設定</a></li>
+            <li><a href="customers.html">顧客管理</a></li>
+            <li><a href="groups.html">グループ管理</a></li>
+            <li><a href="belongs.html">所属管理</a></li>
+            <li class="active"><a href="system.html">システム設定</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">山田太郎<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="login.html">ログアウト</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- system setting -->
+      <div class="row">
+        <!-- admin list -->
+        <h2>管理者一覧</h2>
+        <div class="col-sm-4">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block " id="admin-add-button">管理者追加</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table" id="admin-list">
+              <thead>
+                <tr>
+                  <th>社員番号</th>
+                  <th>削除</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="num">A12345</td>
+                  <td><button class="btn btn-sm btn-primary btn-block admin-remove-button">削除</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> <!-- row -->
+      <div class="row">
+        <!-- admin list -->
+        <h2>アクセスキー一覧</h2>
+        <div class="col-sm-6">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-sm btn-primary btn-block " id="accesskey-add-button">アクセスキーを発行する</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table" id="admin-list">
+              <thead>
+                <tr>
+                  <th>社員番号</th>
+                  <th>システム名</th>
+                  <th>アクセスキー</th>
+                  <th>削除</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="num">A12345</td>
+                  <td id="system-name">レポートシステム</td>
+                  <td id="accesskey">Va7sy3UT6aiwqT6VrW6aDdC3mL94k59g</td>
+                  <td><button class="btn btn-sm btn-primary btn-block accesskey-remove-button">削除</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> <!-- row -->
+    </div><!-- /.container -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">Copyright CyberAgent, Inc. All Rights Reserved.</p>
+      </div>
+    </div>
+
+    <!-- admin add dialog -->
+    <div id="admin-add-dialog" title="管理者追加" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>社員番号を入力してください</label>
+          <input type="text" class="form-control" value="">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="admin-add-dialog-add">追加</button>
+          <button class="btn btn-sm btn-warning" id="admin-add-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+    <!-- admin remove dialog -->
+    <div id="admin-remove-dialog" title="管理者削除" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label id="admin-remove-dialog-message">A12345を削除しますか？</label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-danger" id="admin-remove-dialog-remove">削除</button>
+          <button class="btn btn-sm btn-primary" id="admin-remove-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+    <!-- accesskey add dialog -->
+    <div id="accesskey-add-dialog" title="アクセスキー追加" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label>発行申請した社員の社員番号を入力してください</label>
+          <input type="text" class="form-control" value="">
+        </div>
+        <div class="form-group">
+          <label>APIを利用するシステム名を入力してください</label>
+          <input type="text" class="form-control" value="">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-primary" id="accesskey-add-dialog-add">追加</button>
+          <button class="btn btn-sm btn-warning" id="accesskey-add-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+    <!-- accesskey remove dialog -->
+    <div id="accesskey-remove-dialog" title="アクセスキー削除" style="display:none;">
+      <form>
+        <div class="form-group">
+          <label id="accesskey-remove-dialog-message">レポートシステムのアクセスキーを削除しますか？</label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-sm btn-danger" id="accesskey-remove-dialog-remove">削除</button>
+          <button class="btn btn-sm btn-primary" id="accesskey-remove-dialog-cancel">キャンセル</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    <script src="js/system.js"></script>
+
+  </body>
+</html>
+
