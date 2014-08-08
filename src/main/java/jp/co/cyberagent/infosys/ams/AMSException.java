@@ -14,7 +14,7 @@ public final class AMSException extends Exception {
     private static final long serialVersionUID0b = 7640193439138240768L;
 
     /** Serial Version UID. */
-    private static final long serialVersionUID02 = 7640193439138240768L;
+    private static final long serialVersionUID0a = 7640193439138240768L;
 
     /** Serial Version UID. */
     private static final long serialVersionUID01 = 7640193439138240768L;
